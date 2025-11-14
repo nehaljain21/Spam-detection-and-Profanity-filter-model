@@ -30,11 +30,11 @@ def predict_comment(data: CommentInput):
 
         spam_vec = spam_vectorizer.transform([cleaned])
         spam_prob = spam_model.predict_proba(spam_vec)[0][1]
-        is_spam = spam_prob >= 0.5
+        is_spam = spam_prob >= 0.6
 
         prof_vec = profanity_vectorizer.transform([cleaned])
         prof_prob = profanity_model.predict_proba(prof_vec)[0][1]
-        is_profane = prof_prob >= 0.5
+        is_profane = prof_prob >= 0.6
 
         if is_spam and is_profane:
             label = "Spam & Profane"
