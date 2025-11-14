@@ -36,7 +36,7 @@ def predict_comment(data: CommentInput):
         prof_prob = profanity_model.predict_proba(prof_vec)[0][1]
         is_profane = prof_prob >= 0.82
 
-        if spam_prob >=0.6 and prof__prob>=0.6:
+        if spam_prob >=0.6 and prof_prob>=0.6:
             label = "Spam & Profane"
         elif is_spam:
             label = "Spam"
